@@ -5,11 +5,11 @@ import program.player.Player;
 import javax.swing.*;
 import java.awt.*;
 
-public class GamePanel extends JPanel {
+public class GamePanel extends JPanel{
     Background background;
     Player player; // image, x, y
 
-    public GamePanel() {
+    public GamePanel () {
         background = new Background();
         player = new Player(); // image, x, y
     }
@@ -23,7 +23,7 @@ public class GamePanel extends JPanel {
 
         for (int i = 0; i < GameObject.objects.size(); i++) {
             GameObject object = GameObject.objects.get(i);
-            if(object.active) {
+            if (object.active) {
                 object.render(g);
             }
         }

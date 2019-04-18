@@ -19,7 +19,7 @@ public class Player extends GameObject {
     }
 
     public void run() {
-        super.run(); // position.add(velocity)
+        super.run();
         this.move();
         this.limitPosition();
         this.fire();

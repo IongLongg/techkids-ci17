@@ -5,6 +5,7 @@ import tklibs.SpriteUtils;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.util.Set;
 
 public class Player {
     BufferedImage image;
@@ -13,8 +14,8 @@ public class Player {
 
     public Player() {
         image = SpriteUtils.loadImage("assets/images/players/straight/0.png");
-        x = 300;
-        y = 300;
+        x = Settings.PLAYER_START_X;
+        y = Settings.PLAYER_START_Y;
     }
 
     public void render(Graphics g) {
@@ -22,7 +23,7 @@ public class Player {
     }
 
     public void run() {
-        double playerSpeed = 3;
+        double playerSpeed = Settings.PLAYER_SPEED;
         double vx = 0;
         double vy = 0;
 
@@ -48,7 +49,7 @@ public class Player {
         x += vx;
         y += vy;
 
-        x = Mathx.clamp(x, 0, 384 - 32);
-        y = Mathx.clamp(y, 0, 600 - 48);
+        x = Mathx.clamp(x, 0, Settings.BACKGROUND_WIDTH - Settings.PLAYER_WIDTH);
+        y = Mathx.clamp(y, 0, Settings.BACKGROUND_HEIGHT - Settings.PLAYER_HEIGHT);
     }
 }
