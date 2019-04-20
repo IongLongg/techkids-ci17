@@ -1,5 +1,6 @@
+package program.physic;
+
 import program.Vector2D;
-import tklibs.Mathx;
 
 public class Rectangle {
     public Vector2D position;
@@ -20,6 +21,19 @@ public class Rectangle {
         this.height = height;
     }
 
+    public double top() {
+        return this.position.y;
+    }
+    public double bot() {
+        return top() + this.height;
+    }
+    public double left() {
+        return this.position.x;
+    }
+    public double right() {
+        return left() + this.width;
+    }
+
     /**
      * return true if: this rectangle intersects with the other rectangle
      * else return false
@@ -28,9 +42,14 @@ public class Rectangle {
      */
     public boolean intersects(Rectangle other) {
         // 1. TODO: remove default return statement and implements methods
-        if ((Math.abs(this.position.x - other.position.x) < this.width) && (Math.abs(this.position.y - other.position.y) < this.height))
-            return true;
-        else return false;
+//        if ((Math.abs(this.position.x - other.position.x) < this.width) && (Math.abs(this.position.y - other.position.y) < this.height))
+//            return true;
+//        else return false;
+
+        return this.right() >= other.left()
+                && this.left() <= other.right()
+                && this.top() <= other.bot()
+                && this.bot() >= other.top();
     }
 
     public static void main(String[] args) {

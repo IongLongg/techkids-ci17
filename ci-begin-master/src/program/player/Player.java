@@ -4,6 +4,8 @@ import program.GameObject;
 import program.GameWindow;
 import program.Settings;
 import program.Vector2D;
+import program.renderer.AnimationRenderer;
+import program.renderer.SingleImageRenderer;
 import tklibs.Mathx;
 import tklibs.SpriteUtils;
 
@@ -14,7 +16,8 @@ import java.util.ArrayList;
 public class Player extends GameObject {
 
     public Player() {
-        image = SpriteUtils.loadImage("assets/images/players/straight/0.png");
+//        image = SpriteUtils.loadImage("assets/images/players/straight/0.png");
+        renderer = new AnimationRenderer("assets/images/players/straight");
         position.set(Settings.PLAYER_START_X, Settings.PLAYER_START_Y);
     }
 
@@ -33,14 +36,13 @@ public class Player extends GameObject {
             double toX = this.position.x - 10;
             double fromAngle = -Math.PI / 3;
             double toAngle = -2 * Math.PI / 3;
-            int numberBullet = 20;
+            int numberBullet = 5;
             for (int i = 0; i < numberBullet; i++) {
                 PlayerBullet bullet = GameObject.recycle(PlayerBullet.class);
 
                 double x = fromX + i * (toX - fromX) / (numberBullet - 1);
                 bullet.position.set(x, this.position.y);
-                double angle = fromAngle
-                        + i * (toAngle - fromAngle) / (numberBullet - 1);
+                double angle = fromAngle + i * (toAngle - fromAngle) / (numberBullet - 1);
                 bullet.velocity.setAngle(angle);
 
             }

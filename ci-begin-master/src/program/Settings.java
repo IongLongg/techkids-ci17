@@ -17,5 +17,11 @@ public class Settings {
     public static int PLAYER_FIRE_DELAY = 20;
     // playerBullet
     public static int P_BULLET_SPEED = 5;
+    public static int P_BULLET_DAMAGE = 1;
+    public static int P_BULLET_WIDTH = 24;
+    public static int P_BULLET_HEIGHT = 24;
     // enemy
+    public static int ENEMY_BLACK_HP = 3;
+    public static int ENEMY_WIDTH = 28;
+    public static int ENEMY_HEIGHT = 28;
 }
