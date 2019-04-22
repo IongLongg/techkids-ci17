@@ -25,5 +25,6 @@ public class Program {
         window.setVisible(true);
 
         panel.gameLoop();
+
     }
 }

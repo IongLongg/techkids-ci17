@@ -13,8 +13,7 @@ public class GameObject {
 
 //    //TODO: NOTE
     public static <E extends GameObject> E recycle(Class<E> cls) {
-        // E ~ Player / Background
-        // cls ~ Player.class / Background.class
+
         // 1. Tim 1 doi tuong da deactive > reset > return
         E object = findDeactive(cls);
         if(object != null) {
@@ -29,22 +28,7 @@ public class GameObject {
             return null;
         }
     }
-    // clone1
-//    public static <E extends GameObject> E recycle(Class<E> cls) {
-//        // 1.Tim 1 doi tuong da deactive > reset> return
-//        E object = findDeactive(cls);
-//        if (object != null) {
-//            object.reset();
-//            return object;
-//        }
-//        // 2.Neu ko timm dc > khoi tao > return
-//        try {
-//            object = cls.getConstructor().newInstance();
-//            return object;
-//        } catch (Exception ex) {
-//            return null;
-//        }
-//    }
+
 
     //TODO: Note
     public static <E extends GameObject> E findDeactive(Class<E> cls) {
