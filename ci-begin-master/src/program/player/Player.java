@@ -14,31 +14,14 @@ import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 public class Player extends GameObject {
-
     public Player() {
-//        image = SpriteUtils.loadImage("assets/images/players/straight/0.png");
-//        renderer = new AnimationRenderer("assets/images/players/straight");
-//        renderer = new PlayerRenderer(this.velocity.x);
-//        this.render();
+        renderer = new PlayerRenderer();
         position.set(Settings.PLAYER_START_X, Settings.PLAYER_START_Y);
-
-    }
-
-    private void render(double x) {
-        if (x == 0) {
-            System.out.println("straight");
-            renderer = new AnimationRenderer("assets/images/players/straight");
-        } else if (x < 0) {
-            System.out.println("left");
-            renderer = new AnimationRenderer("assets/images/players/left");
-        } else {
-            System.out.println("right");
-            renderer = new AnimationRenderer("assets/images/players/right");
-        }
+//        anchor.set(Settings.PLAYER_WIDTH, Settings.PLAYER_HEIGHT);
     }
 
     public void run() {
-//        super.run();
+        super.run();
         this.move();
         this.limitPosition();
         this.fire();
@@ -60,7 +43,6 @@ public class Player extends GameObject {
                 bullet.position.set(x, this.position.y);
                 double angle = fromAngle + i * (toAngle - fromAngle) / (numberBullet - 1);
                 bullet.velocity.setAngle(angle);
-
             }
             count = 0;
         }
@@ -91,20 +73,6 @@ public class Player extends GameObject {
         }
 
         velocity.set(vx, vy);
-        position.add(velocity);
-
-        render(this.velocity.x);
-//        if (this.velocity.x == 0) {
-//            System.out.println("straight");
-//            renderer = new AnimationRenderer("assets/images/players/straight");
-//        } else if (this.velocity.x < 0) {
-//            System.out.println("left");
-//            renderer = new AnimationRenderer("assets/images/players/left");
-//        } else {
-//            System.out.println("right");
-//            renderer = new AnimationRenderer("assets/images/players/right");
-//        }
-
     }
 
     public void limitPosition() {

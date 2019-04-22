@@ -61,6 +61,7 @@ public class GameObject {
     public Renderer renderer;
     public Vector2D position;
     public Vector2D velocity;
+    public Vector2D anchor;
     public boolean active;
     public BoxCollider hitBox; // = null
 
@@ -68,6 +69,7 @@ public class GameObject {
         objects.add(this);
         position = new Vector2D();
         velocity = new Vector2D();
+        anchor = new Vector2D(0.5, 0.5);
         active = true;
     }
 

@@ -1,6 +1,7 @@
 package program;
 
 import program.enemy.Enemy;
+import program.enemy.EnemySummoner;
 import program.player.Player;
 
 import javax.swing.*;
@@ -13,7 +14,8 @@ public class GamePanel extends JPanel{
     public GamePanel () {
         background = new Background();
         player = new Player(); // image, x, y
-        GameObject.recycle(Enemy.class);
+//        GameObject.recycle(Enemy.class);
+        GameObject.recycle(EnemySummoner.class);
     }
 
     static Font font = new Font("Verdana", Font.ITALIC, 32);
